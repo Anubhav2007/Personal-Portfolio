@@ -360,7 +360,7 @@ body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 24px; height:
 .profile-photo-frame {
   position: relative;
   z-index: 1;
-  width: 280px; height: 340px;
+  width: 100%; max-width: 280px; height: 340px;
   border-radius: 1rem;
   padding: 3px;
   background: linear-gradient(
@@ -413,8 +413,11 @@ body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 24px; height:
   .profile-photo-frame { width: 300px; height: 370px; }
 }
 
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.info-card-full { grid-column: span 2; }
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.info-card-full { grid-column: 1 / -1; }
+@media (min-width: 768px) {
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
 .info-title { font-size: 1.875rem; font-weight: 700; color: var(--accent); font-family: var(--font-syne); margin-bottom: 0.25rem; }
 .info-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: var(--sub); }
 .info-heading { font-family: var(--font-mono); font-size: 0.75rem; color: var(--sub); margin-bottom: 0.75rem; }
